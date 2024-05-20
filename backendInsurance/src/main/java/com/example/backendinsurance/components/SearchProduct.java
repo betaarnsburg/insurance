@@ -50,7 +50,7 @@ public class SearchProduct {
             riskScore += 15.0;
         }
 
-        if(riskScore <= 4) {
+        if(riskScore <= 10) {
             return productRepository.findById(1);
         } else if(riskScore <= 20) {
             return productRepository.findById(2);

@@ -2,10 +2,10 @@ CREATE TABLE IF NOT EXISTS product (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description VARCHAR(255),
-    price DECIMAL
+    price DECIMAL(38,2)
     );
 
-INSERT INTO product (id, name, description, price) VALUES (1, 'Young', 'lower risik', '19.9');
+INSERT INTO product (id, name, description, price) VALUES (1, 'Young', 'lower risik', 19.9);
 INSERT INTO product (id, name, description, price) VALUES (2, 'Middle', 'middle risik', 29.9);
 INSERT INTO product (id, name, description, price) VALUES (3, 'Luxus', 'high risik', 39.9);
 
