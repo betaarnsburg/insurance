@@ -1,0 +1,21 @@
+<div *ngIf="customerDetails">
+  <p>{{customerDetails.id}}</p>
+  <ul>
+    <li>Vorname: {{customerDetails.firstName}}</li>
+    <li>Nachname: {{customerDetails.lastName}}</li>
+    <li>Geburtsdatum: {{customerDetails.birthDate}}</li>
+    <li>Adresse: {{customerDetails.address}}</li>
+    <li>Handynummer: {{customerDetails.phone}}</li>
+    <li>Email: {{customerDetails.email}}</li>
+    <li>Geschlecht: {{customerDetails.gender}}</li>
+    <li>Diabetiker: {{customerDetails.isDiabetics}}</li>
+    <li>Hochblutdruck: {{customerDetails.isHighBloodPressure}}</li>
+    <li>Produkt: {{customerDetails.product}}</li>
+    <div *ngFor="let order of customerDetails.orders">
+      <span>AuftragsNr.: {{order.id}}</span>
+    </div>
+  </ul>
+
+  <button [routerLink]="['/customerForm/', customerDetails.id]">Update</button>
+  <button (click)="deleteCustomer(customerDetails.id!)">Delete</button>
+</div>
