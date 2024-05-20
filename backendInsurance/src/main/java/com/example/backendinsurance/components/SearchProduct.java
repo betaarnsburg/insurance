@@ -14,12 +14,11 @@ import java.util.Optional;
 public class SearchProduct {
     private final ProductRepository productRepository;
 
-    public Optional<Product> searchProductByInfo(Integer age,
+    public synchronized Optional<Product> searchProductByInfo(Integer age,
                                                  Boolean isDiabetics,
                                                  Boolean isHighBloodPressure,
                                                  Integer travelDays){
         double riskScore = 0.0;
-
         if(age < 12) {
             riskScore += 2.0;
         } else if(age < 18) {
