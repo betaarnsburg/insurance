@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/backendInsurance/backendInsurance.iml" filepath="$PROJECT_DIR$/backendInsurance/backendInsurance.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frontendInsurance.iml" filepath="$PROJECT_DIR$/frontendInsurance.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/insurance.iml" filepath="$PROJECT_DIR$/.idea/insurance.iml" />
     </modules>
   </component>
