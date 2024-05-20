@@ -13,7 +13,7 @@ import java.util.Optional;
 @Transactional
 @Data
 public class ProductService {
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
     public List<Product> findAllProducts() {
         return productRepository.findAll();

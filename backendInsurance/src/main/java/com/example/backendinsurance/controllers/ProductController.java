@@ -26,7 +26,7 @@ public class ProductController {
     }
     @PostMapping
     public ResponseEntity<Product> createProduct(@RequestBody @Validated Product product) {
-        if (productService.findProductById(product.getId()).isPresent()) {
+        if (product.getId() != null) {
             return ResponseEntity.badRequest().build();
         }else {
             return ResponseEntity.ok(productService.saveProduct(product));

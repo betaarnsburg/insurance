@@ -32,6 +32,8 @@ public class Customer {
     private String email;
     @NotNull
     private String gender;
+    boolean isDiabetics;
+    boolean isHighBloodPressure;
 
     @JsonIgnore
     @ManyToOne

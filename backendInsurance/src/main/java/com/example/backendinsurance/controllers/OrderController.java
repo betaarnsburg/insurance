@@ -26,7 +26,7 @@ public class OrderController {
     }
     @PostMapping
     public ResponseEntity<Order> createOrder(@RequestBody @Validated Order order) {
-        if (orderService.findOrderById(order.getId()).isEmpty()) {
+        if (order.getId() == null) {
             return ResponseEntity.ok(orderService.saveOrder(order));
         }else {
             return ResponseEntity.badRequest().build();

@@ -13,7 +13,7 @@ import java.util.Optional;
 @Transactional
 @Data
 public class OrderService {
-    private OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
 
     public List<Order> findAllOrders() {
         return orderRepository.findAll();

@@ -7,20 +7,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "\"order\"")
 public class Order {
     @Id
     @GeneratedValue
     private Long id;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "name_id")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @JsonIgnore
