@@ -1,0 +1,8 @@
+<div>
+  <h1>Überblick der Kunden</h1>
+  <div *ngFor="let customer of customers">
+    <span>{{customer.id}} {{customer.firstName}} {{customer.lastName}}</span>
+    <button [routerLink]="['/customer/', customer.id]"> Details</button>
+
+  </div>
+</div>

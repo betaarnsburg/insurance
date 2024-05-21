@@ -1,0 +1,45 @@
+<div>
+  <fieldset>
+    <form [formGroup]="saveCustomer" (submit)="submitForm()">
+      <label for="firstName">Vorname: </label>
+      <input type="text" id="firstName" formControlName="firstName">
+
+      <label for="lastName">Nachname: </label>
+      <input type="text" id="lastName" formControlName="lastName">
+
+      <label for="birthday">Geburtsdatum: </label>
+      <input type="date" id="birthday" formControlName="birthday">
+
+      <label for="address">Adresse: </label>
+      <input type="text" id="address" formControlName="address">
+
+      <label for="phone">Handynummer: </label>
+      <input type="text" id="phone" formControlName="phone">
+
+      <label for="email">Email: </label>
+      <input type="text" id="email" formControlName="email">
+
+      <p>Geschlecht</p>
+      <input type="radio" id="gender-male" formControlName="gender" value="male">
+      <label for="gender-male">männlich</label>
+      <input type="radio" id="gender-female" formControlName="gender" value="female">
+      <label for="gender-female">weiblich</label>
+
+      <label for="diabetics">Diabetiker</label>
+      <input type="checkbox" id="diabetics" formControlName="diabetics">
+
+      <label for="highBloodPressure">Hochblutdruck</label>
+      <input type="checkbox" id="highBloodPressure" formControlName="highBloodPressure">
+
+      <select [compareWith]="compareProduct" id="product" formControlName="product">
+        <option selected>Choose product...</option>
+        <option *ngFor="let product of products" [ngValue]="product">{{product.name}}</option>
+      </select>
+      <br>
+
+      <button type="submit" id="saveCustomer" [disabled]="saveCustomer.invalid">
+        Speichern
+      </button>
+    </form>
+  </fieldset>
+</div>

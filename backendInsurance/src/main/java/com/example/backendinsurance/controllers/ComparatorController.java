@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.*;
 public class ComparatorController {
     private SearchProduct searchProduct;
 
-    @GetMapping("/{age}/{isDiabetics}/{isHighBloodPressure}/{travelDays}")
+    @GetMapping("/{age}/{diabetics}/{highBloodPressure}/{travelDays}")
     public ResponseEntity<Product> recommendProduct(@PathVariable("age") Integer age,
-                                                    @PathVariable("isDiabetics") String isDiabetics,
-                                                    @PathVariable("isHighBloodPressure") String isHighBloodPressure,
+                                                    @PathVariable("diabetics") String isDiabetics,
+                                                    @PathVariable("highBloodPressure") String isHighBloodPressure,
                                                     @PathVariable("travelDays") Integer travelDays) {
         return ResponseEntity.of(searchProduct.searchProductByInfo(age,
                 Boolean.parseBoolean(isDiabetics),

@@ -1,0 +1,21 @@
+<div>
+  <h1>Produkte suchen</h1>
+  <fieldset>
+    <form [formGroup]="comparator" (submit)="saveComparator()">
+      <label for="age">Alter</label>
+      <input type="number" id="age" formControlName="age">
+      <label for="diabetics">Diabetiker</label>
+      <input type="checkbox" id="diabetics" formControlName="diabetics">
+      <label for="highBloodPressure">Hochblutdruck</label>
+      <input type="checkbox" id="highBloodPressure" formControlName="highBloodPressure">
+      <label for="travelDays">Reisetage</label>
+      <input type="number" id="travelDays" formControlName="travelDays">
+      <br>
+      <button type="submit" id="comparator" [disabled]="comparator.invalid">
+        Einreichen
+      </button>
+    </form>
+  </fieldset>
+</div>
+
+
