@@ -11,10 +11,10 @@ export class ComparatorService {
   base_URL = 'http://localhost:8080/insurance/comparator';
   constructor(private http: HttpClient) { }
   recommendProduct(age: number,
-                   isDiabetics: string,
-                   isHighBloodPressure: string,
+                   diabetics: string,
+                   highBloodPressure: string,
                    travelDays: number): Observable<Product> {
     return this.http.get<Product>(this.base_URL + "/" + age
-    + "/" + isDiabetics + "/" + isHighBloodPressure + "/" + travelDays);
+    + "/" + diabetics + "/" + highBloodPressure + "/" + travelDays);
   }
 }

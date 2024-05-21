@@ -15,8 +15,8 @@ public class SearchProduct {
     private final ProductRepository productRepository;
 
     public synchronized Optional<Product> searchProductByInfo(Integer age,
-                                                 Boolean isDiabetics,
-                                                 Boolean isHighBloodPressure,
+                                                 Boolean diabetics,
+                                                 Boolean highBloodPressure,
                                                  Integer travelDays){
         double riskScore = 0.0;
         if(age < 12) {
@@ -33,11 +33,11 @@ public class SearchProduct {
             riskScore += 6.0;
         }
 
-        if(isDiabetics) {
+        if(diabetics) {
             riskScore += 25.0;
         }
 
-        if(isHighBloodPressure) {
+        if(highBloodPressure) {
             riskScore += 25.0;
         }
 

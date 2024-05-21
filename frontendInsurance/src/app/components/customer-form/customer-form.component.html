@@ -7,8 +7,8 @@
       <label for="lastName">Nachname: </label>
       <input type="text" id="lastName" formControlName="lastName">
 
-      <label for="birthDate">Geburtsdatum: </label>
-      <input type="date" id="birthDate" formControlName="birthDate">
+      <label for="birthday">Geburtsdatum: </label>
+      <input type="date" id="birthday" formControlName="birthday">
 
       <label for="address">Adresse: </label>
       <input type="text" id="address" formControlName="address">
@@ -25,13 +25,13 @@
       <input type="radio" id="gender-female" formControlName="gender" value="female">
       <label for="gender-female">weiblich</label>
 
-      <label for="isDiabetics">Diabetiker</label>
-      <input type="checkbox" id="isDiabetics" formControlName="isDiabetics">
+      <label for="diabetics">Diabetiker</label>
+      <input type="checkbox" id="diabetics" formControlName="diabetics">
 
-      <label for="isHighBloodPressure">Hochblutdruck</label>
-      <input type="checkbox" id="isHighBloodPressure" formControlName="isHighBloodPressure">
+      <label for="highBloodPressure">Hochblutdruck</label>
+      <input type="checkbox" id="highBloodPressure" formControlName="highBloodPressure">
 
-      <select [compareWith]="compareProduct" id="category" formControlName="product">
+      <select [compareWith]="compareProduct" id="product" formControlName="product">
         <option selected>Choose product...</option>
         <option *ngFor="let product of products" [ngValue]="product">{{product.name}}</option>
       </select>

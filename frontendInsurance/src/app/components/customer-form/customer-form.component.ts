@@ -23,13 +23,13 @@ export class CustomerFormComponent {
     this.saveCustomer = this.formBuilder.group({
       firstName: [null, Validators.required],
       lastName: [null, Validators.required],
-      birthDate: [null, Validators.required],
+      birthday: [null, Validators.required],
       address: [null, Validators.required],
       phone: [null, Validators.required],
       email: [null, Validators.required],
       gender: [null, Validators.required],
-      isDiabetics: [false],
-      isHighBloodPressure: [false],
+      diabetics: [false],
+      highBloodPressure: [false],
       product: [null, Validators.required]
     });
     const id = this.activatedRoute.snapshot.paramMap.get("id");
@@ -41,6 +41,9 @@ export class CustomerFormComponent {
   }
 
   compareProduct(p1: Product, p2: Product) {
+    if (p1 == null || p2 == null) {
+      return false;
+    }
     return p1.id === p2.id;
   }
 

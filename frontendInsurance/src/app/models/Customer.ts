@@ -5,13 +5,13 @@ export interface Customer {
   id?: number;
   firstName: string;
   lastName: string;
-  birthDate: string;
+  birthday: string;
   address: string;
   phone: string;
   email: string;
   gender: string;
-  isDiabetics: boolean;
-  isHighBloodPressure: boolean;
+  diabetics: boolean;
+  highBloodPressure: boolean;
   product: Product;
   orders: Order[];
 }

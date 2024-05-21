@@ -8,5 +8,5 @@ export interface Order {
   customer: Customer;
   product: Product;
   orderDate: string;
-  isPaid: boolean;
+  paid: boolean;
 }

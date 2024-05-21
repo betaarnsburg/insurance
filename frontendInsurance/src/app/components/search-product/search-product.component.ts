@@ -15,8 +15,8 @@ export class SearchProductComponent {
               private router: Router) {
     this.comparator = this.formBuilder.group({
       age: [null, Validators.required],
-      isDiabetics: [false],
-      isHighBloodPressure: [false],
+      diabetics: [false],
+      highBloodPressure: [false],
       travelDays: [null, Validators.required]
     })
   }
@@ -25,8 +25,8 @@ export class SearchProductComponent {
     this.router.navigate(["/result"],
       {queryParams: {
         age: this.comparator.controls["age"].value,
-        isDiabetics: this.comparator.controls["isDiabetics"].value,
-        isHighBloodPressure: this.comparator.controls["isHighBloodPressure"].value,
+        isDiabetics: this.comparator.controls["diabetics"].value,
+        isHighBloodPressure: this.comparator.controls["highBloodPressure"].value,
         travelDays: this.comparator.controls["travelDays"].value,
         }});
   }

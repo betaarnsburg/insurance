@@ -1,5 +1,6 @@
 package com.example.backendinsurance.entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
@@ -8,6 +9,7 @@ import jakarta.validation.constraints.Past;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.Set;
@@ -26,14 +28,16 @@ public class Customer {
     private String lastName;
     @NotNull
     @Past
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate birthday;
     private String address;
     private String phone;
     private String email;
     @NotNull
     private String gender;
-    boolean isDiabetics;
-    boolean isHighBloodPressure;
+    private boolean diabetics;
+    private boolean highBloodPressure;
 
     @JsonIgnore
     @ManyToOne

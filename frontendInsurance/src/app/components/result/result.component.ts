@@ -16,8 +16,8 @@ export class ResultComponent {
               private comparatorService: ComparatorService) {
     this.comparatorService.recommendProduct(
       parseInt(this.route.snapshot.queryParamMap.get("age")!),
-      this.route.snapshot.queryParamMap.get("isDiabetics")!,
-      this.route.snapshot.queryParamMap.get("isHighBloodPressure")!,
+      this.route.snapshot.queryParamMap.get("diabetics")!,
+      this.route.snapshot.queryParamMap.get("highBloodPressure")!,
       parseInt(this.route.snapshot.queryParamMap.get("travelDays")!)
     ).subscribe(product => this.product = product);
   }
