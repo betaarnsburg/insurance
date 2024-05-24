@@ -1,45 +1,89 @@
 <div>
   <fieldset>
     <form [formGroup]="saveCustomer" (submit)="submitForm()">
-      <label for="firstName">Vorname: </label>
-      <input type="text" id="firstName" formControlName="firstName">
+      <div class="input-group mb-3">
+        <div class="col-auto">
+          <label for="firstName" class="input-group-text">Vorname: </label>
+        </div>
+        <div class="col-auto">
+          <input type="text" class="form-control" id="firstName" formControlName="firstName">
+        </div>
+      </div>
 
-      <label for="lastName">Nachname: </label>
-      <input type="text" id="lastName" formControlName="lastName">
+      <div class="input-group mb-3">
+        <div class="col-auto">
+          <label class="input-group-text" for="lastName">Nachname: </label>
+        </div>
+        <div class="col-auto">
+          <input class="form-control" type="text" id="lastName" formControlName="lastName">
+        </div>
+      </div>
 
-      <label for="birthday">Geburtsdatum: </label>
-      <input type="date" id="birthday" formControlName="birthday">
+      <div>
 
-      <label for="address">Adresse: </label>
-      <input type="text" id="address" formControlName="address">
+      </div>
+      <div>
+        <label for="birthday">Geburtsdatum: </label>
+      </div>
+      <div>
+        <input type="date" id="birthday" formControlName="birthday">
+      </div>
 
-      <label for="phone">Handynummer: </label>
-      <input type="text" id="phone" formControlName="phone">
+      <div>
+        <label for="address">Adresse: </label>
+      </div>
+      <div>
+        <input type="text" id="address" formControlName="address">
+      </div>
 
-      <label for="email">Email: </label>
-      <input type="text" id="email" formControlName="email">
+      <div>
+        <label for="phone">Handynummer: </label>
+      </div>
+      <div>
+        <input type="text" id="phone" formControlName="phone">
+      </div>
 
-      <p>Geschlecht</p>
-      <input type="radio" id="gender-male" formControlName="gender" value="male">
-      <label for="gender-male">männlich</label>
-      <input type="radio" id="gender-female" formControlName="gender" value="female">
-      <label for="gender-female">weiblich</label>
+      <div>
+        <label for="email">Email: </label>
+      </div>
+      <div>
+        <input type="text" id="email" formControlName="email">
+      </div>
 
-      <label for="diabetics">Diabetiker</label>
-      <input type="checkbox" id="diabetics" formControlName="diabetics">
+      <div>
+        <p>Geschlecht</p>
+        <input type="radio" id="gender-male" formControlName="gender" value="male">
+        <label for="gender-male">männlich</label>
+        <input type="radio" id="gender-female" formControlName="gender" value="female">
+        <label for="gender-female">weiblich</label>
+      </div>
 
-      <label for="highBloodPressure">Hochblutdruck</label>
-      <input type="checkbox" id="highBloodPressure" formControlName="highBloodPressure">
+      <div>
+        <label for="diabetics">Diabetiker</label>
+      </div>
+      <div>
+        <input type="checkbox" id="diabetics" formControlName="diabetics">
+      </div>
 
-      <select [compareWith]="compareProduct" id="product" formControlName="product">
-        <option selected>Choose product...</option>
-        <option *ngFor="let product of products" [ngValue]="product">{{product.name}}</option>
-      </select>
+      <div>
+        <label for="highBloodPressure">Hochblutdruck</label>
+      </div>
+      <div>
+        <input type="checkbox" id="highBloodPressure" formControlName="highBloodPressure">
+      </div>
+      <div>
+        <select [compareWith]="compareProduct" id="product" formControlName="product">
+          <option selected>Choose product...</option>
+          <option *ngFor="let product of products" [ngValue]="product">{{product.name}}</option>
+        </select>
+      </div>
       <br>
+      <div>
+        <button type="submit" id="saveCustomer" [disabled]="saveCustomer.invalid">
+          Speichern
+        </button>
+      </div>
 
-      <button type="submit" id="saveCustomer" [disabled]="saveCustomer.invalid">
-        Speichern
-      </button>
     </form>
   </fieldset>
 </div>

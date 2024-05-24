@@ -1,17 +1,33 @@
-<div>
+<div class="offset-1">
   <h1>Produkte suchen</h1>
-  <fieldset>
+  <fieldset class="border border-primary rounded-3 col-3">
     <form [formGroup]="comparator" (submit)="saveComparator()">
-      <label for="age">Alter</label>
-      <input type="number" id="age" formControlName="age">
-      <label for="diabetics">Diabetiker</label>
-      <input type="checkbox" id="diabetics" formControlName="diabetics">
-      <label for="highBloodPressure">Hochblutdruck</label>
-      <input type="checkbox" id="highBloodPressure" formControlName="highBloodPressure">
-      <label for="travelDays">Reisetage</label>
-      <input type="number" id="travelDays" formControlName="travelDays">
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="age" class="col-form-label">Alter</label>
+        </div>
+        <div class="col-auto">
+          <input type="number" id="age" class="form-control" formControlName="age">
+        </div>
+      </div>
+      <div class="form-check">
+        <label for="diabetics" class="form-check-label">Diabetiker</label>
+        <input type="checkbox" id="diabetics" class="form-check-input" formControlName="diabetics">
+      </div>
+      <div class="form-check">
+        <label for="highBloodPressure" class="form-check-label">Hochblutdruck</label>
+        <input type="checkbox" id="highBloodPressure" class="form-check-input" formControlName="highBloodPressure">
+      </div>
+      <div class="row g-3 align-items-center">
+        <div class="col-auto">
+          <label for="travelDays" class="col-form-label">Reisetage</label>
+        </div>
+        <div class="col-auto">
+          <input type="number" id="travelDays" class="form-control" formControlName="travelDays">
+        </div>
+      </div>
       <br>
-      <button type="submit" id="comparator" [disabled]="comparator.invalid">
+      <button class="btn btn-primary" type="submit" id="comparator" [disabled]="comparator.invalid">
         Einreichen
       </button>
     </form>
