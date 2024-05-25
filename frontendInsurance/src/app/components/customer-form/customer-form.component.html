@@ -1,89 +1,99 @@
-<div>
-  <fieldset>
+<div class="container mt-4">
+  <fieldset class="col-8">
     <form [formGroup]="saveCustomer" (submit)="submitForm()">
-      <div class="input-group mb-3">
-        <div class="col-auto">
-          <label for="firstName" class="input-group-text">Vorname: </label>
-        </div>
-        <div class="col-auto">
+      <div class="mb-3 row">
+        <label for="firstName" class="col-sm-2 col-form-label">Vorname:</label>
+        <div class="col-sm-10">
           <input type="text" class="form-control" id="firstName" formControlName="firstName">
         </div>
       </div>
 
-      <div class="input-group mb-3">
-        <div class="col-auto">
-          <label class="input-group-text" for="lastName">Nachname: </label>
-        </div>
-        <div class="col-auto">
-          <input class="form-control" type="text" id="lastName" formControlName="lastName">
+      <div class="mb-3 row">
+        <label for="lastName" class="col-sm-2 col-form-label">Nachname:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lastName" formControlName="lastName">
         </div>
       </div>
 
-      <div>
-
-      </div>
-      <div>
-        <label for="birthday">Geburtsdatum: </label>
-      </div>
-      <div>
-        <input type="date" id="birthday" formControlName="birthday">
+      <div class="mb-3 row">
+        <label for="birthday" class="col-sm-2 col-form-label">Geburtsdatum:</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" id="birthday" formControlName="birthday">
+        </div>
       </div>
 
-      <div>
-        <label for="address">Adresse: </label>
-      </div>
-      <div>
-        <input type="text" id="address" formControlName="address">
-      </div>
-
-      <div>
-        <label for="phone">Handynummer: </label>
-      </div>
-      <div>
-        <input type="text" id="phone" formControlName="phone">
+      <div class="mb-3 row">
+        <label for="address" class="col-sm-2 col-form-label">Adresse:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="address" formControlName="address">
+        </div>
       </div>
 
-      <div>
-        <label for="email">Email: </label>
-      </div>
-      <div>
-        <input type="text" id="email" formControlName="email">
-      </div>
-
-      <div>
-        <p>Geschlecht</p>
-        <input type="radio" id="gender-male" formControlName="gender" value="male">
-        <label for="gender-male">männlich</label>
-        <input type="radio" id="gender-female" formControlName="gender" value="female">
-        <label for="gender-female">weiblich</label>
+      <div class="mb-3 row">
+        <label for="phone" class="col-sm-2 col-form-label">Handynummer:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="phone" formControlName="phone">
+        </div>
       </div>
 
-      <div>
-        <label for="diabetics">Diabetiker</label>
-      </div>
-      <div>
-        <input type="checkbox" id="diabetics" formControlName="diabetics">
-      </div>
-
-      <div>
-        <label for="highBloodPressure">Hochblutdruck</label>
-      </div>
-      <div>
-        <input type="checkbox" id="highBloodPressure" formControlName="highBloodPressure">
-      </div>
-      <div>
-        <select [compareWith]="compareProduct" id="product" formControlName="product">
-          <option selected>Choose product...</option>
-          <option *ngFor="let product of products" [ngValue]="product">{{product.name}}</option>
-        </select>
-      </div>
-      <br>
-      <div>
-        <button type="submit" id="saveCustomer" [disabled]="saveCustomer.invalid">
-          Speichern
-        </button>
+      <div class="mb-3 row">
+        <label for="email" class="col-sm-2 col-form-label">Email:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="email" formControlName="email">
+        </div>
       </div>
 
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label">Geschlecht:</label>
+        <div class="col-sm-10">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="gender-male" formControlName="gender" value="male">
+            <label class="form-check-label" for="gender-male">männlich</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="gender-female" formControlName="gender" value="female">
+            <label class="form-check-label" for="gender-female">weiblich</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label" for="diabetics">Diabetiker:</label>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="diabetics" formControlName="diabetics">
+            <label class="form-check-label" for="diabetics"></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-sm-2 col-form-label" for="highBloodPressure">Hochblutdruck:</label>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="highBloodPressure" formControlName="highBloodPressure">
+            <label class="form-check-label" for="highBloodPressure"></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label for="product" class="col-sm-2 col-form-label">Produkt:</label>
+        <div class="col-sm-10">
+          <select class="form-select" id="product" formControlName="product">
+            <option selected>Choose product...</option>
+            <option *ngFor="let product of products" [ngValue]="product">{{product.name}}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-10 offset-sm-2">
+          <button type="submit" class="btn btn-primary" id="saveCustomer" [disabled]="saveCustomer.invalid">
+            Speichern
+          </button>
+        </div>
+      </div>
     </form>
   </fieldset>
 </div>

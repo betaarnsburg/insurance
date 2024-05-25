@@ -1,8 +1,11 @@
-<div>
-  <h1>Überblick der Kunden</h1>
-  <div *ngFor="let customer of customers">
-    <span>{{customer.id}} {{customer.firstName}} {{customer.lastName}}</span>
-    <button [routerLink]="['/customer/', customer.id]"> Details</button>
-
+<div class="container mt-4 col-3">
+  <h1 class="mb-4">Überblick der Kunden</h1>
+  <div *ngFor="let customer of customers" class="row mb-3 align-items-center">
+    <div class="col-sm-8">
+      <span>{{customer.id}} {{customer.firstName}} {{customer.lastName}}</span>
+    </div>
+    <div class="col-sm-4 text-end">
+      <button class="btn btn-primary btn-sm" [routerLink]="['/customer/', customer.id]">Details</button>
+    </div>
   </div>
 </div>
