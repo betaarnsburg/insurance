@@ -1,37 +1,34 @@
-<div class="offset-1">
-  <h1>Produkte suchen</h1>
-  <fieldset class="border border-primary rounded-3 col-3">
+<div class="container mt-4">
+  <h1 class="mb-4">Produkte suchen</h1>
+  <fieldset class="border border-primary rounded-3 p-4 col-5">
     <form [formGroup]="comparator" (submit)="saveComparator()">
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <label for="age" class="col-form-label">Alter</label>
-        </div>
-        <div class="col-auto">
+      <div class="mb-3 row align-items-center">
+        <label for="age" class="col-sm-2 col-form-label">Alter</label>
+        <div class="col-sm-10">
           <input type="number" id="age" class="form-control" formControlName="age">
         </div>
       </div>
-      <div class="form-check">
-        <label for="diabetics" class="form-check-label">Diabetiker</label>
+
+      <div class="mb-3 form-check">
         <input type="checkbox" id="diabetics" class="form-check-input" formControlName="diabetics">
+        <label for="diabetics" class="form-check-label">Diabetiker</label>
       </div>
-      <div class="form-check">
-        <label for="highBloodPressure" class="form-check-label">Hochblutdruck</label>
+
+      <div class="mb-3 form-check">
         <input type="checkbox" id="highBloodPressure" class="form-check-input" formControlName="highBloodPressure">
+        <label for="highBloodPressure" class="form-check-label">Hochblutdruck</label>
       </div>
-      <div class="row g-3 align-items-center">
-        <div class="col-auto">
-          <label for="travelDays" class="col-form-label">Reisetage</label>
-        </div>
-        <div class="col-auto">
+
+      <div class="mb-3 row align-items-center">
+        <label for="travelDays" class="col-sm-2 col-form-label">Reisetage</label>
+        <div class="col-sm-10">
           <input type="number" id="travelDays" class="form-control" formControlName="travelDays">
         </div>
       </div>
-      <br>
+
       <button class="btn btn-primary" type="submit" id="comparator" [disabled]="comparator.invalid">
         Einreichen
       </button>
     </form>
   </fieldset>
 </div>
-
-

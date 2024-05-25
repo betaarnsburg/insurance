@@ -1,21 +1,32 @@
-<div *ngIf="customerDetails">
-  <p>{{customerDetails.id}}</p>
-  <ul>
-    <li>Vorname: {{customerDetails.firstName}}</li>
-    <li>Nachname: {{customerDetails.lastName}}</li>
-    <li>Geburtsdatum: {{customerDetails.birthday}}</li>
-    <li>Adresse: {{customerDetails.address}}</li>
-    <li>Handynummer: {{customerDetails.phone}}</li>
-    <li>Email: {{customerDetails.email}}</li>
-    <li>Geschlecht: {{customerDetails.gender}}</li>
-    <li>Diabetiker: {{customerDetails.diabetics}}</li>
-    <li>Hochblutdruck: {{customerDetails.highBloodPressure}}</li>
-    <li>Produkt: {{customerDetails.product.name}}</li>
-    <div *ngFor="let order of customerDetails.orders">
-      <span>AuftragsNr.: {{order.id}}</span>
+<div *ngIf="customerDetails" class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      <h5>Kundendetails</h5>
     </div>
-  </ul>
-
-  <button [routerLink]="['/customerForm/', customerDetails.id]">Update</button>
-  <button (click)="deleteCustomer(customerDetails.id!)">Delete</button>
+    <div class="card-body">
+      <p><strong>ID: </strong>{{customerDetails.id}}</p>
+      <ul class="list-group mb-3">
+        <li class="list-group-item"><strong>Vorname:</strong> {{customerDetails.firstName}}</li>
+        <li class="list-group-item"><strong>Nachname:</strong> {{customerDetails.lastName}}</li>
+        <li class="list-group-item"><strong>Geburtsdatum:</strong> {{customerDetails.birthday}}</li>
+        <li class="list-group-item"><strong>Adresse:</strong> {{customerDetails.address}}</li>
+        <li class="list-group-item"><strong>Handynummer:</strong> {{customerDetails.phone}}</li>
+        <li class="list-group-item"><strong>Email:</strong> {{customerDetails.email}}</li>
+        <li class="list-group-item"><strong>Geschlecht:</strong> {{customerDetails.gender}}</li>
+        <li class="list-group-item"><strong>Diabetiker:</strong> {{customerDetails.diabetics}}</li>
+        <li class="list-group-item"><strong>Hochblutdruck:</strong> {{customerDetails.highBloodPressure}}</li>
+        <li class="list-group-item"><strong>Produkt:</strong> {{customerDetails.product.name}}</li>
+      </ul>
+      <div *ngIf="customerDetails.orders && customerDetails.orders.length > 0" class="mb-3">
+        <h6>Bestellungen</h6>
+        <ul class="list-group">
+          <li *ngFor="let order of customerDetails.orders" class="list-group-item">
+            <strong>AuftragsNr.:</strong> {{order.id}}
+          </li>
+        </ul>
+      </div>
+      <button class="btn btn-primary me-2" [routerLink]="['/customerForm/', customerDetails.id]">Update</button>
+      <button class="btn btn-danger" (click)="deleteCustomer(customerDetails.id!)">Delete</button>
+    </div>
+  </div>
 </div>
