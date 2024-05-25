@@ -6,6 +6,8 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.util.Map;
 import java.util.Optional;
 
 @Component
@@ -14,47 +16,51 @@ import java.util.Optional;
 public class SearchProduct {
     private final ProductRepository productRepository;
 
-    public synchronized Optional<Product> searchProductByInfo(Integer age,
+    private static final double diabeticsRiskScore = 25.0;
+    private static final double highBloodPressureRiskScore = 25.0;
+    private static final Map<Integer, Double> travelDaysRiskScore = Map.of(
+            7, 2.0,
+            30, 5.0,
+            Integer.MAX_VALUE, 15.0
+    );
+    private static final Map<Integer, Double> ageRiskScore = Map.of(
+            12, 2.0,
+            18, 1.0,
+            30, 3.5,
+            50, 6.5,
+            70, 8.5,
+            Integer.MAX_VALUE, 10.0
+    );
+
+    public Optional<Product> searchProductByInfo(Integer age,
                                                  Boolean diabetics,
                                                  Boolean highBloodPressure,
-                                                 Integer travelDays){
-        double riskScore = 0.0;
-        if(age < 12) {
-            riskScore += 2.0;
-        } else if(age < 18) {
-            riskScore += 1.0;
-        } else if(age < 30) {
-            riskScore += 2.5;
-        } else if(age < 50) {
-            riskScore += 3.5;
-        } else if(age < 70) {
-            riskScore += 4.5;
-        } else {
-            riskScore += 6.0;
-        }
-
-        if(diabetics) {
-            riskScore += 25.0;
-        }
-
-        if(highBloodPressure) {
-            riskScore += 25.0;
-        }
-
-        if (travelDays <= 7) {
-            riskScore += 2.0;
-        } else if (travelDays <= 30){
-            riskScore += 5.0;
-        } else {
-            riskScore += 15.0;
-        }
-
-        if(riskScore <= 10) {
+                                                 Integer travelDays) {
+        double riskScore = getAgeRiskScore(age)
+                + (diabetics ? diabeticsRiskScore : 0.0)
+                + (highBloodPressure ? highBloodPressureRiskScore : 0.0)
+                + getTravelDaysRiskScore(travelDays);
+        if (riskScore <= 10.0) {
             return productRepository.findById(1);
-        } else if(riskScore <= 20) {
+        } else if (riskScore <= 20.0) {
             return productRepository.findById(2);
         } else {
             return productRepository.findById(3);
         }
+    }
+
+    private double getAgeRiskScore(Integer age) {
+        return ageRiskScore.entrySet().stream()
+                .filter(entry -> age <= entry.getKey())
+                .findFirst()
+                .map(Map.Entry::getValue)
+                .orElse(0.0);
+    }
+    private double getTravelDaysRiskScore(Integer travelDays) {
+        return travelDaysRiskScore.entrySet().stream()
+                .filter(entry -> travelDays <= entry.getKey())
+                .findFirst()
+                .map(Map.Entry::getValue)
+                .orElse(0.0);
     }
 }
