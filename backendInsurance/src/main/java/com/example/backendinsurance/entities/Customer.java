@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.List;
 
 @Entity
 @Data
@@ -39,12 +39,11 @@ public class Customer {
     private boolean diabetics;
     private boolean highBloodPressure;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "product_id")
     private Product product;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "customer")
-    private Set<Order> orders;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders;
 }
